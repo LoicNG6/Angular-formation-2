@@ -1,5 +1,13 @@
-<h2>{{ title }}</h2>
-<p>On line since : {{ createdDate }}</p>
-<p>{{ description }}</p>
-<p>🤌 {{ snaps }}</p>
-<img [src]="imageUrl" [alt]="title" />
+<div class="face-snap-card">
+  <h2>{{ faceSnap.title }}</h2>
+  <p>On line since : {{ faceSnap.createdDate }}</p>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+  <p>{{ faceSnap.description }}</p>
+  <p>
+    <button (click)="onHandleSnap()">{{ faceSnap.snapMessage }}</button>
+    <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }"
+      >🤌 {{ faceSnap.snaps }}</span
+    >
+  </p>
+  <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
+</div>
